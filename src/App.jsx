@@ -4,23 +4,23 @@ import './App.css';
 
 
 const App = () => {
-  const [photos, setphoto] = useState([])
+  const [photos, setPhotos] = useState([])
 
 
   axios.get('https://jsonplaceholder.typicode.com/photos').then((res) => {
-    const postItem = res.data;
-    setPosts(postItem)
+    const photoItem = res.data;
+    setPhotos(photoItem)
   })
 
 
   return (
     <main>
 
-    {posts.map(post => {
-      return <div className='post' key={post.id}>
-      <h1>{post.title}</h1>
-      <p>{post.body}</p>
-      <img src={image.url}/>
+    {photos.map(photo => {
+      return <div className='photo' key={photo.id}>
+      <h1>{photo.title}</h1>
+      <img src={photo.url}/>
+      <img src={photo.thumbnailUrl}/>
       </div>
     })}
     </main>
